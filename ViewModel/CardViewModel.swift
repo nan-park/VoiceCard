@@ -5,6 +5,7 @@ import AVFoundation
 class CardViewModel: ObservableObject {
     @Published var cards: [UUID: Card] = [:]
     @Published var currentSentence: String = ""
+    @Published var selectedCardId: UUID?
     @Published var sortOption: SortOption = .latest
     
     private let key = "savedCards"

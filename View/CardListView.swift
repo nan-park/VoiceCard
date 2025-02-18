@@ -11,6 +11,14 @@ struct CardListView: View {
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 20), GridItem(.flexible())], spacing: 16) {
                         ForEach(Array(viewModel.sortedCards)) {card in
                             VoiceCardView(id: card.id)
+                                .simultaneousGesture(
+                                    LongPressGesture(minimumDuration: 1.0)
+                                        .onEnded { _ in
+                                            print("Long pressed for 1.5 seconds")
+                                            viewModel.selectedCardId  = card.id
+                                            path.append(.editCardView)
+                                        }
+                                )
                         }
                     }
                     .padding(.top, 10)
@@ -26,6 +34,8 @@ struct CardListView: View {
                         }
                 case .addCardView:
                     AddCardView(path: $path)
+                case .editCardView:
+                    EditCardView(path: $path)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
