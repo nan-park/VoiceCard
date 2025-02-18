@@ -6,6 +6,7 @@ struct VoiceCardView: View {
     var body: some View {
         if let card = viewModel.cards[id] {
             Button {
+                viewModel.incrementUsageCount(id)
                 viewModel.speak(card.sentence)
             } label : {
                 ZStack {
@@ -20,16 +21,14 @@ struct VoiceCardView: View {
                         .cornerRadius(10)
                         .opacity(0.4)
                     
-                    VStack(alignment: .leading) {
-                        Text(card.sentence)
-                            .font(.callout)
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(4)
-                            .truncationMode(.tail)
-                            .allowsTightening(true)
-                            .padding()
-                    }
-                    .padding()
+                    Text(card.sentence)
+                        .font(.callout)
+                        .foregroundStyle(.black)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(4)
+                        .truncationMode(.tail)
+                        .allowsTightening(true)
+                        .padding()
                     
                 }
             }

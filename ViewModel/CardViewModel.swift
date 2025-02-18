@@ -49,8 +49,14 @@ class CardViewModel: ObservableObject {
         
     }
     
-    private func incrementCount() {
-        
+    func incrementUsageCount(_ id: UUID) {
+        if var card = cards[id] {
+            card.usageCount += 1
+            cards[id] = card
+            saveCards()
+        } else {
+            print("There is no card of this id: \(id)")
+        }
     }
     
     // voice card

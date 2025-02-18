@@ -50,7 +50,7 @@ struct AddCardView: View {
                     Spacer()
                     Text("Please enter a non-empty sentence!")
                         .padding()
-                        .background(Color.gray.opacity(0.9))
+                        .background(Color(red: 26/255, green: 26/255, blue: 46/255))
                         .foregroundColor(.white)
                         .clipShape(Capsule())
                         .padding()
