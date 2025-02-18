@@ -14,7 +14,7 @@ struct CardListView: View {
                                 .simultaneousGesture(
                                     LongPressGesture(minimumDuration: 1.0)
                                         .onEnded { _ in
-                                            print("Long pressed for 1.5 seconds")
+                                            print("Long pressed for 1 seconds")
                                             viewModel.selectedCardId  = card.id
                                             path.append(.editCardView)
                                         }

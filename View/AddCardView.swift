@@ -11,10 +11,19 @@ struct AddCardView: View {
     @FocusState private var isTextFieldFocused: Bool
     var body: some View {
         ZStack {
+            Color.clear
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    if showEmojiPicker {
+                        showEmojiPicker = false
+                    }
+                }
+            
             // main stack
             VStack {
                 Button {
                     showEmojiPicker.toggle()
+                    isTextFieldFocused = false
                 } label: {
                     Text(emoji)
                         .font(.system(size: 50))
@@ -24,13 +33,16 @@ struct AddCardView: View {
                 }
                 .padding()
                 
-                // MARK: (CHECK) When the keyboard and emojiPicker are opened at the same time, what happens?
+                // MARK: CHECK IF KEYBOARD IS NATURALLY OPERATED
                 TextField("Enter the sentence", text: $viewModel.currentSentence)
                     .padding()
                     .background(.gray.opacity(0.1))
                     .cornerRadius(8)
                     .focused($isTextFieldFocused)
                     .padding(20)
+                    .onTapGesture {
+                        showEmojiPicker = false
+                    }
                 
                 Spacer()
             }
