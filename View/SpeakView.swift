@@ -26,15 +26,15 @@ struct SpeakView: View {
             } label: {
                 HStack {
                     Text("Speak")
-                        .foregroundStyle(.black)
+                        .foregroundColor(.white)
                     Image(systemName: "speaker.wave.2")
                         .font(.system(size: 20))
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                 }
                 .padding(10)
-                .overlay(
+                .background(
                     RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color.black, lineWidth: 1)
+                        .foregroundStyle(Color(red: 26/255, green: 26/255, blue: 46/255))
                 )
                 .padding()
             }

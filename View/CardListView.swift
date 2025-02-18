@@ -39,7 +39,7 @@ struct CardListView: View {
                         path.append(.speakView)
                         print(path)
                     } label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "person.wave.2.fill")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.black)
                     }
