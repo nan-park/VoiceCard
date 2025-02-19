@@ -6,6 +6,7 @@ class CardViewModel: ObservableObject {
     @Published var cards: [UUID: Card] = [:]
     @Published var currentSentence: String = ""
     @Published var selectedCardId: UUID?
+    @Published var currentEmoji: String = ""
     @Published var sortOption: SortOption = .latest
     
     private let key = "savedCards"
@@ -42,11 +43,11 @@ class CardViewModel: ObservableObject {
         saveCards()
     }
     
-    private func updateCard(id: UUID, sentence: String, emoji: String) {
+    func updateCard(id: UUID, sentence: String, emoji: String) {
         
     }
     
-    private func deleteCard() {
+    func deleteCard(id: UUID) {
         
     }
     

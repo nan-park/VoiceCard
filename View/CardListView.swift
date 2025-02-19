@@ -15,7 +15,9 @@ struct CardListView: View {
                                     LongPressGesture(minimumDuration: 1.0)
                                         .onEnded { _ in
                                             print("Long pressed for 1 seconds")
+                                            viewModel.currentSentence = card.sentence
                                             viewModel.selectedCardId  = card.id
+                                            viewModel.currentEmoji = card.emoji
                                             path.append(.editCardView)
                                         }
                                 )

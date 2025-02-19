@@ -11,6 +11,7 @@ struct AddCardView: View {
     @FocusState private var isTextFieldFocused: Bool
     var body: some View {
         ZStack {
+            // area outside the emoji picker
             Color.clear
                 .contentShape(Rectangle())
                 .onTapGesture {
@@ -33,7 +34,7 @@ struct AddCardView: View {
                 }
                 .padding()
                 
-                // MARK: CHECK IF KEYBOARD IS NATURALLY OPERATED
+                // MARK: CHECK IF KEYBOARD IS NATURALLY OPERATED(+EditCardView)
                 TextField("Enter the sentence", text: $viewModel.currentSentence)
                     .padding()
                     .background(.gray.opacity(0.1))
