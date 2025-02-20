@@ -17,13 +17,13 @@ struct VoiceCardView: View {
                         .frame(width: width, height: width * 0.8)
                     
                     Text(card.emoji)
-                        .font(.system(size: 80))
-                        .frame(width: 100, height: 100)
+                        .font(.system(size: width * 0.3))
+                        .frame(width: width * 0.3, height: width * 0.3)
                         .cornerRadius(10)
                         .opacity(0.4)
                     
                     Text(card.sentence)
-                        .font(.callout)
+                        .font(.title)
                         .foregroundStyle(.black)
                         .multilineTextAlignment(.center)
                         .lineLimit(4)

@@ -23,9 +23,9 @@ struct SortButton: View {
             viewModel.sortOption = option
         } label: {
             Text(title)
-                .font(.callout)
+                .font(.title2)
                 .foregroundColor(viewModel.sortOption == option ? Color.white : Color.black)
-                .padding(8)
+                .padding(10)
                 .background(viewModel.sortOption == option ? Color.black : Color.gray.opacity(0.1))
                 .cornerRadius(10)
         }

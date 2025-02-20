@@ -44,7 +44,7 @@ struct CardListView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("VoiceCard")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.system(.largeTitle, weight: .bold))
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -52,7 +52,7 @@ struct CardListView: View {
                         print(path)
                     } label: {
                         Image(systemName: "person.wave.2.fill")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(.black)
                     }
                 }

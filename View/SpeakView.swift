@@ -10,7 +10,8 @@ struct SpeakView: View {
     
     var body: some View {
         VStack {
-            TextField("Enter a sentence", text: $viewModel.currentSentence)
+            TextField("Enter a sentence to be spoken", text: $viewModel.currentSentence)
+                .font(.title3)
                 .padding()
                 .background(.gray.opacity(0.1))
                 .cornerRadius(8)
@@ -28,7 +29,7 @@ struct SpeakView: View {
                     Text("Speak")
                         .foregroundColor(.white)
                     Image(systemName: "speaker.wave.2")
-                        .font(.system(size: 20))
+                        .font(.system(.title3))
                         .foregroundColor(.white)
                 }
                 .padding(10)
@@ -50,7 +51,7 @@ struct SpeakView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 25, weight: .bold))
                         .foregroundColor(.black)
                 }
             }
@@ -61,9 +62,10 @@ struct SpeakView: View {
                 } label: {
                     HStack {
                         Text("Register")
+                            .font(.title3)
                             .foregroundStyle(.black)
                         Image(systemName: "chevron.right")
-                            .font(.system(size:20, weight: .bold))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(.black)
                     }
                 }

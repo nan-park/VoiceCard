@@ -28,14 +28,15 @@ struct EditCardView: View {
                     } label: {
                         // MARK: need to manage the flexible size later(+AddCardView)
                         Text(viewModel.currentEmoji)
-                            .font(.system(size: 50))
-                            .frame(width: 80, height: 80)
+                            .font(.system(size: 100))
+                            .frame(width: 150, height: 150)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                     }
                     .padding()
                     
                     TextField("Enter the sentence", text: $viewModel.currentSentence)
+                        .font(.title3)
                         .padding()
                         .background(.gray.opacity(0.1))
                         .cornerRadius(8)
@@ -72,7 +73,6 @@ struct EditCardView: View {
                     }
                 }
             }
-            .navigationBarTitle("Edit the Card", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -80,9 +80,15 @@ struct EditCardView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(.black)
                     }
+                }
+                ToolbarItem(placement: .principal) {
+                    Text("Edit the Card")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -90,11 +96,11 @@ struct EditCardView: View {
                         path.removeAll()
                     } label: {
                         Image(systemName: "trash")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(.black)
                     }
                 }
-                // MARK: (DESIGN CHECK) icon button size too big
+                // MARK: (DESIGN CHECK) icon button size
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         if !viewModel.currentSentence.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
@@ -110,7 +116,7 @@ struct EditCardView: View {
                         print(viewModel.cards)
                     } label: {
                         Image(systemName: "checkmark")
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size: 25, weight: .bold))
                             .foregroundColor(.black)
                     }
                 }
