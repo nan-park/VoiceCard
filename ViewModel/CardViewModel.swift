@@ -44,11 +44,19 @@ class CardViewModel: ObservableObject {
     }
     
     func updateCard(id: UUID, sentence: String, emoji: String) {
-        
+        if var card = cards[id] {
+            card.sentence = sentence
+            card.emoji = emoji
+            cards[id] = card
+            saveCards()
+        }
     }
     
     func deleteCard(id: UUID) {
-        
+        if var card = cards[id] {
+            cards[card.id] = nil
+            saveCards()
+        }
     }
     
     func incrementUsageCount(_ id: UUID) {
