@@ -2,6 +2,7 @@ import SwiftUI
 
 struct VoiceCardView: View {
     let id: UUID
+    let width = (UIScreen.main.bounds.width - 60) / 2
     @EnvironmentObject var viewModel: CardViewModel
     var body: some View {
         if let card = viewModel.cards[id] {
@@ -13,7 +14,7 @@ struct VoiceCardView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 2, y: 2)
-                        .frame(width: (UIScreen.main.bounds.width - 60) / 2, height: 150)
+                        .frame(width: width, height: width * 0.8)
                     
                     Text(card.emoji)
                         .font(.system(size: 80))
