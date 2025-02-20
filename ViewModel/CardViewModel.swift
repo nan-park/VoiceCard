@@ -29,10 +29,18 @@ class CardViewModel: ObservableObject {
     }
     
     private func loadCards() {
-        
+        guard let savedData = UserDefaults.standard.data(forKey: key) else { return }
+        let decoder = JSONDecoder()
+        if let decodedData = try? decoder.decode([UUID: Card].self, from: savedData) {
+            self.cards = decodedData
+        }
     }
     
     private func saveCards() {
+        let encoder = JSONEncoder()
+        if let encodedData = try? encoder.encode(cards) {
+            UserDefaults.standard.set(encodedData, forKey: key)
+        }
         
     }
     
@@ -53,7 +61,7 @@ class CardViewModel: ObservableObject {
     }
     
     func deleteCard(id: UUID) {
-        if var card = cards[id] {
+        if let card = cards[id] {
             cards[card.id] = nil
             saveCards()
         }
