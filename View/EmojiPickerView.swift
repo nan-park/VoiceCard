@@ -3,26 +3,30 @@ import SwiftUI
 struct EmojiPickerView: View {
     @Binding var selectedEmoji: String
     @Binding var showEmojiPicker: Bool
-
+    
     let emojis: [String] = {
         let ranges: [ClosedRange<Int>] = [
             0x1F600...0x1F64F,
             0x1F300...0x1F5FF,
             0x1F680...0x1F6FF,
             0x1F900...0x1F9FF,
+            0x1FA70...0x1FAFF,
+            0x2600...0x26FF,
+            0x2700...0x27BF,
+            0xFE00...0xFE0F
         ]
         return ranges.flatMap { range in
             range.compactMap { UnicodeScalar($0).map { String($0) } }
         }
     }()
-
+    
     var body: some View {
         VStack(spacing: 0) {
             Capsule()
                 .frame(width: 40, height: 5)
                 .foregroundColor(Color.gray.opacity(0.5))
                 .padding(.top, 8)
-
+            
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 30))], spacing: 6) {
                     ForEach(emojis, id: \.self) { emoji in
