@@ -27,8 +27,8 @@ struct EmojiPickerView: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 30))], spacing: 6) {
                     ForEach(emojis, id: \.self) { emoji in
                         Text(emoji)
-                            .font(.system(size: 22))
-                            .frame(width: 35, height: 35)
+                            .font(.system(size: 30))
+                            .frame(width: 45, height: 45)
                             .background(selectedEmoji == emoji ? Color.blue.opacity(0.3) : Color.clear)
                             .cornerRadius(8)
                             .onTapGesture {
